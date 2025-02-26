@@ -27,6 +27,10 @@ Styles the button with a blue background and white text. */
   margin-bottom: 20px;
 }
 
+.search-box {
+  margin-bottom: 20px;
+}
+
 #city-input {
   padding: 10px;
   width: calc(100% - 22px);
