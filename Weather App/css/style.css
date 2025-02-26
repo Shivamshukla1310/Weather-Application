@@ -1,0 +1,64 @@
+/* Adds a white background, padding, rounded corners, and a subtle shadow.
+Centers the container on the page. */
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  margin: 50px auto;
+}
+
+/* Increases font size.
+Changes text color for contrast.
+Adds spacing below the header. */
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+/* 
+Adds padding and borders for better usability.
+Styles the button with a blue background and white text. */
+
+.search-section {
+  margin-bottom: 20px;
+}
+
+#city-input {
+  padding: 10px;
+  width: calc(100% - 22px);
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#search-btn {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Ensures the layout looks good on smaller screens.
+Adjusts widths and margins for responsiveness. */
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    margin: 20px;
+  }
+
+  #city-input {
+    width: calc(100% - 20px);
+  }
+
+  #search-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
