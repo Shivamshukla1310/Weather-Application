@@ -1,11 +1,33 @@
-// Function to fetch weather data using Agromonitoring API
-async function fetchWeatherData(city) {
-  const apiKey = "e369f3b73013371919c12ceb8d9b6cfd"; // Added actual API key
+// Function to fetch coordinates for a city
+async function getCoordinates(city) {
+  const geoApiKey = "e369f3b73013371919c12ceb8d9b6cfd"; // Use a valid API key for geocoding if needed
+  const geoApiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${geoApiKey}`;
 
-  // Placeholder coordinates (update with dynamic coordinates if needed)
-  const latitude = 35; // Example latitude
-  const longitude = 139; // Example longitude
-  const apiUrl = `https://api.agromonitoring.com/agro/1.0/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  try {
+    const response = await fetch(geoApiUrl);
+    if (!response.ok) {
+      throw new Error("City not found");
+    }
+    const data = await response.json();
+    if (data.length === 0) {
+      throw new Error("City not found");
+    }
+    return { latitude: data[0].lat, longitude: data[0].lon };
+  } catch (error) {
+    console.error("Error fetching coordinates:", error);
+    alert("Error: " + error.message);
+    return null;
+  }
+}
+
+// Function to fetch weather data using OpenWeather API
+async function fetchWeatherData(city) {
+  const weatherApiKey = "e369f3b73013371919c12ceb8d9b6cfd";
+  const coordinates = await getCoordinates(city);
+  if (!coordinates) return;
+
+  const { latitude, longitude } = coordinates;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${weatherApiKey}`;
 
   try {
     const response = await fetch(apiUrl);
@@ -19,7 +41,7 @@ async function fetchWeatherData(city) {
     // Update DOM with fetched data
     document.getElementById(
       "city-name"
-    ).textContent = `Coordinates: (${latitude}, ${longitude})`;
+    ).textContent = `City: ${city} (Lat: ${latitude}, Lon: ${longitude})`;
     document.getElementById(
       "temperature"
     ).textContent = `Temperature: ${data.main.temp} °C`;
@@ -36,8 +58,6 @@ async function fetchWeatherData(city) {
 document.getElementById("search-btn").addEventListener("click", function () {
   const city = document.getElementById("city-input").value.trim();
   if (city) {
-    // Currently, fetchWeatherData uses static coordinates.
-    // You can implement a geocoding API to convert city names to coordinates if needed.
     fetchWeatherData(city);
   } else {
     alert("Please enter a city name.");
