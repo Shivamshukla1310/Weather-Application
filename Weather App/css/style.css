@@ -44,7 +44,8 @@ h1 {
   font-size: 16px;
 }
 
-#search-btn {
+#search-btn,
+#location-btn {
   padding: 12px 16px;
   cursor: pointer;
   background: #ff7eb3;
@@ -55,7 +56,8 @@ h1 {
   transition: 0.3s;
 }
 
-#search-btn:hover {
+#search-btn:hover,
+#location-btn:hover {
   background: #ff4d94;
 }
 
@@ -66,6 +68,7 @@ h1 {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .weather-info p {
@@ -97,6 +100,7 @@ h1 {
   text-align: center;
   width: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-in-out;
 }
 
 .day-card img {
@@ -119,6 +123,27 @@ h1 {
   color: #f1f1f1;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
   .container {
@@ -133,7 +158,8 @@ h1 {
     width: 100%;
   }
 
-  #search-btn {
+  #search-btn,
+  #location-btn {
     width: 100%;
     margin-top: 10px;
   }

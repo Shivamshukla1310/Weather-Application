@@ -8,45 +8,21 @@
   </head>
   <body>
     <div class="container">
-      <h1>Weather App</h1>
-      <div class="search-box">
+      <h1 class="fade-in">Weather App</h1>
+      <div class="search-box slide-in">
         <input type="text" id="city-input" placeholder="Enter city name" />
         <button id="search-btn">Search</button>
+        <button id="location-btn">📍 Use Current Location</button>
       </div>
-      <div class="weather-info">
+      <div class="weather-info fade-in">
         <p id="city-name">City: -</p>
         <p id="temperature">Temperature: -</p>
         <p id="weather-description">Description: -</p>
       </div>
       <div class="forecast">
         <h2>3-Day Weather Forecast</h2>
-        <div class="forecast-days">
-          <div class="day-card">
-            <div class="day-date">Monday</div>
-            <div class="day-weather-icon">
-              <img src="weather-icon.png" alt="Weather Icon" />
-            </div>
-            <div class="day-temperature">--°C</div>
-            <div class="day-description">--</div>
-          </div>
-
-          <div class="day-card">
-            <div class="day-date">Tuesday</div>
-            <div class="day-weather-icon">
-              <img src="weather-icon.png" alt="Weather Icon" />
-            </div>
-            <div class="day-temperature">--°C</div>
-            <div class="day-description">--</div>
-          </div>
-
-          <div class="day-card">
-            <div class="day-date">Wednesday</div>
-            <div class="day-weather-icon">
-              <img src="weather-icon.png" alt="Weather Icon" />
-            </div>
-            <div class="day-temperature">--°C</div>
-            <div class="day-description">--</div>
-          </div>
+        <div class="forecast-days" id="forecast-container">
+          <!-- Forecast cards will be dynamically added here -->
         </div>
       </div>
     </div>
