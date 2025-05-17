@@ -1,0 +1,60 @@
+<!-- Weather Application Done-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="fade-in">Weather App</h1>
+      <div class="search-box slide-in">
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Enter city name"
+          class="input-box"
+        />
+        <button id="search-btn" class="btn">Search</button>
+        <button id="location-btn" class="btn">Access My Location</button>
+      </div>
+      <div class="weather-info zoom-in">
+        <p id="city-name">City: -</p>
+        <p id="temperature">Temperature: -</p>
+        <p id="weather-description">Description: -</p>
+      </div>
+      <div class="forecast fade-in">
+        <h2>3-Day Weather Forecast</h2>
+        <div class="forecast-days">
+          <div class="day-card">
+            <div class="day-date">Monday</div>
+            <div class="day-weather-icon">
+              <img src="./images/cloud.png" alt="Weather Icon" />
+            </div>
+            <div class="day-temperature">25°C</div>
+            <div class="day-description">Partly Cloudy</div>
+          </div>
+          <div class="day-card">
+            <div class="day-date">Tuesday</div>
+            <div class="day-weather-icon">
+              <img src="./images/sunny-day.png" alt="Weather Icon" />
+            </div>
+            <div class="day-temperature">28°C</div>
+            <div class="day-description">Sunny</div>
+          </div>
+          <div class="day-card">
+            <div class="day-date">Wednesday</div>
+            <div class="day-weather-icon">
+              <img src="./images/rainy.png" alt="Weather Icon" />
+            </div>
+            <div class="day-temperature">22°C</div>
+            <div class="day-description">Rainy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
